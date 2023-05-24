@@ -7,13 +7,13 @@ function App() {
 
 
   const apiKey = 'd38b20925679d2d417fddef4f8cb381a'
-  const APIcall = `https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}`
+  //const APIcall = `https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}`
 
 
   const [weather, setWeather] = useState({})
 
     useEffect(() => {
-      fetch(`https://api.openweathermap.org/data/2.5/weather?q=dallas&appid=${apiKey}`)
+      fetch(`https://api.openweathermap.org/data/2.5/weather?q=dallas&units=imperial&appid=${apiKey}`)
       .then(resp => resp.json())
       .then(data => {
             console.log(data)
