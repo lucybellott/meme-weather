@@ -26,6 +26,18 @@ function App() {
   return (
     <div className="App">
     <h1>Meme Weather</h1>
+    <div className='search'>
+      <input type='text'></input>
+    </div>
+    <div className='city'>
+      <h2>City</h2>
+    </div>
+    <div className='Temp'>
+      <h1>60F</h1>
+    </div>
+    <div className='feels-like'>
+      <p>Feels like</p>
+    </div>
     </div>
   );
 }
