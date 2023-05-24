@@ -7,27 +7,22 @@ function App() {
 
 
   const apiKey = 'd38b20925679d2d417fddef4f8cb381a'
+  const APIcall = `https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}`
 
 
-const [weather, setWeather] = useState({})
+  const [weather, setWeather] = useState({})
 
-  useEffect(() => {
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=${apiKey}
-    `)
-    .then(resp => resp.json())
-    .then(data => {
-          console.log(data)
-    })
-    }, [])
+    useEffect(() => {
+      fetch(`https://api.openweathermap.org/data/2.5/weather?q=dallas&appid=${apiKey}`)
+      .then(resp => resp.json())
+      .then(data => {
+            console.log(data)
+      })
+      }, [])
   
   
   
-  
-  
-  
-  
-  
-  
+
   return (
     <div className="App">
     <h1>Meme Weather</h1>
