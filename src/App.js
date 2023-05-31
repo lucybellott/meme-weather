@@ -22,26 +22,32 @@ function App() {
       .catch(error => console.log(error))
       },[])
   
- // console.log(weather.main.temp)
+ console.log(weather)
   
 
   return (
     <div className="App">
-    <h1>Meme Weather</h1>
-    <div className='search'>
-      <input type='text'></input>
-    </div>
-    <div className='city'>
-      <h2>City</h2>
-    </div>
-    <div className='Temp'>
-      {weather.main ? <h1>{weather.main.temp}</h1> : null}
-      65F
-    </div>
-    <div className='feels-like'>
-      <p>Feels like</p>
-      <p>50F</p>
-    </div>
+      <h1>Meme Weather</h1>
+      <div className='search'>
+        <input type='text'></input>
+      </div>
+      <div className='city'>
+        <h2>{weather.name}</h2>
+      </div>
+      <div className='Temp'>
+        {weather.main ? <h1>{weather.main.temp}</h1> : null}
+        65F
+      </div>
+      <div className='feels-like'>
+        <p>Feels like</p>
+        {weather.main ? <p>{weather.main.feels_like}</p> : null}
+        <p>50F</p>
+      </div>
+      <div className ='minMax'></div>
+        <span>Min:  </span>
+        {weather.main ? <span>{weather.main.temp_min}</span> : null}
+        <span> Max: </span>
+        {weather.main ? <span>{weather.main.temp_max}</span> : null}
     </div>
   );
 }
