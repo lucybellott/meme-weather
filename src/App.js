@@ -10,19 +10,19 @@ function App() {
   //const APIcall = `https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}`
 
 
-  const [weather, setWeather] = useState({})
+  const [info, setInfo] = useState({})
 
     useEffect(() => {
       fetch(`https://api.openweathermap.org/data/2.5/weather?q=dallas&units=imperial&appid=${apiKey}`)
       .then(resp => resp.json())
       .then(data => {
             //console.log(data.main.temp)
-            setWeather(data)
+            setInfo(data)
       })
       .catch(error => console.log(error))
       },[])
   
- console.log(weather)
+ console.log(info)
   
 
   return (
@@ -31,23 +31,31 @@ function App() {
       <div className='search'>
         <input type='text'></input>
       </div>
+      
       <div className='city'>
-        <h2>{weather.name}</h2>
+        <h2>{info.name}</h2>
       </div>
+      
       <div className='Temp'>
-        {weather.main ? <h1>{weather.main.temp}</h1> : null}
-        65F
+        {info.main ? <h1>{info.main.temp}</h1> : null}
       </div>
+
+      <div className='Desc'>
+        {info.weather ? <h2>{info.weather[0].main}</h2> : null}
+      </div>
+      
       <div className='feels-like'>
         <p>Feels like</p>
-        {weather.main ? <p>{weather.main.feels_like}</p> : null}
-        <p>50F</p>
+        {info.main ? <p>{info.main.feels_like}</p> : null}
       </div>
-      <div className ='minMax'></div>
-        <span>Min:  </span>
-        {weather.main ? <span>{weather.main.temp_min}</span> : null}
+      
+      <div className ='minMax'>
+      <span>Min:  </span>
+        {info.main ? <span>{info.main.temp_min}</span> : null}
         <span> Max: </span>
-        {weather.main ? <span>{weather.main.temp_max}</span> : null}
+        {info.main ? <span>{info.main.temp_max}</span> : null}
+      </div>
+        
     </div>
   );
 }
