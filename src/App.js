@@ -16,11 +16,13 @@ function App() {
       fetch(`https://api.openweathermap.org/data/2.5/weather?q=dallas&units=imperial&appid=${apiKey}`)
       .then(resp => resp.json())
       .then(data => {
-            console.log(data)
+            //console.log(data.main.temp)
+            setWeather(data)
       })
-      }, [])
+      .catch(error => console.log(error))
+      },[])
   
-  
+ // console.log(weather.main.temp)
   
 
   return (
@@ -33,10 +35,12 @@ function App() {
       <h2>City</h2>
     </div>
     <div className='Temp'>
-      <h1>60F</h1>
+      {weather.main ? <h1>{weather.main.temp}</h1> : null}
+      65F
     </div>
     <div className='feels-like'>
       <p>Feels like</p>
+      <p>50F</p>
     </div>
     </div>
   );
