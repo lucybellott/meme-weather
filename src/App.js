@@ -11,6 +11,7 @@ function App() {
 
 
   const [info, setInfo] = useState({})
+  const [location, setLocation] = useState("")
 
     useEffect(() => {
       fetch(`https://api.openweathermap.org/data/2.5/weather?q=dallas&units=imperial&appid=${apiKey}`)
@@ -29,7 +30,11 @@ function App() {
     <div className="App">
       <h1>Meme Weather</h1>
       <div className='search'>
-        <input type='text'></input>
+        <input type='text'
+               value={location}
+               onChange={e => setLocation(e.target.value)}>
+
+        </input>
       </div>
       
       <div className='city'>
