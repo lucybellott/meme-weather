@@ -13,17 +13,20 @@ function App() {
   const [info, setInfo] = useState({})
   const [location, setLocation] = useState("")
 
-    useEffect(() => {
-      fetch(`https://api.openweathermap.org/data/2.5/weather?q=dallas&units=imperial&appid=${apiKey}`)
+    
+  function searchLocation() {
+
+ 
+      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=${apiKey}`)
       .then(resp => resp.json())
       .then(data => {
             //console.log(data.main.temp)
             setInfo(data)
       })
       .catch(error => console.log(error))
-      },[])
-  
- console.log(info)
+              console.log(info)
+ }
+ 
   
 
   return (
@@ -32,8 +35,10 @@ function App() {
       <div className='search'>
         <input type='text'
                value={location}
-               onChange={e => setLocation(e.target.value)}>
-
+               onChange={e => setLocation(e.target.value)}
+               onKeyDown={searchLocation}
+               >
+               
         </input>
       </div>
       
