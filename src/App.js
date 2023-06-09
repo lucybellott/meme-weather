@@ -16,15 +16,14 @@ function App() {
     
   function searchLocation() {
 
- 
-      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=${apiKey}`)
-      .then(resp => resp.json())
-      .then(data => {
-            //console.log(data.main.temp)
-            setInfo(data)
-      })
-      .catch(error => console.log(error))
-              console.log(info)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=${apiKey}`)
+        .then(resp => resp.json())
+        .then(data => {
+              //console.log(data.main.temp)
+              setInfo(data)
+        })
+        .catch(error => console.log(error))
+                console.log(info)
  }
  
   
@@ -47,7 +46,7 @@ function App() {
       </div>
       
       <div className='Temp'>
-        {info.main ? <h1>{info.main.temp}</h1> : null}
+        {info.main ? <h1>{info.main.temp.toFixed()}F</h1> : null}
       </div>
 
       <div className='Desc'>
@@ -56,7 +55,7 @@ function App() {
       
       <div className='feels-like'>
         <p>Feels like</p>
-        {info.main ? <p>{info.main.feels_like}</p> : null}
+        {info.main ? <p>{info.main.feels_like.toFixed()}F</p> : null}
       </div>
       
       <div className ='minMax'>
