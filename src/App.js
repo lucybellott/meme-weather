@@ -60,9 +60,9 @@ function App() {
       
       <div className ='minMax'>
       <span>Min:  </span>
-        {info.main ? <span>{info.main.temp_min}</span> : null}
+        {info.main ? <span>{info.main.temp_min.toFixed()}F</span> : null}
         <span> Max: </span>
-        {info.main ? <span>{info.main.temp_max}</span> : null}
+        {info.main ? <span>{info.main.temp_max.toFixed()}F</span> : null}
       </div>
         
     </div>
